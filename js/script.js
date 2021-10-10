@@ -10,7 +10,7 @@ Project 4 - Random Quote Generator
 /*** 
  * `quotes` array 
 ***/
-
+//declare an array named quotes
 let quotes = [
   {
     quote: 'Many of life’s failures are people who did not realize how close they were to success when they gave up.',
@@ -49,22 +49,22 @@ let quotes = [
 ];
 
 /***
- * `getRandomQuote` function
+ * `getRandomQuote` function 
 ***/
 
 function getRandomQuote() {
-  const randomNum= Math.floor(Math.random() * quotes.length);
-  return quotes[randomNum];
+  const randomNum= Math.floor(Math.random() * quotes.length);//genarate a randome number
+  return quotes[randomNum]; //Return an item of quotes array.
 }
 
 /***
  * `printQuote` function
 ***/
 function printQuote() {
-  const printOnScreen = getRandomQuote();
+  const printOnScreen = getRandomQuote();  //declare a variable printOnScreen and assign the returned quote from getRandomQuote function to it.
   let html = `<p class="quote">${printOnScreen.quote}</p>
   <p class="source">${printOnScreen.source}<span class="citation">${printOnScreen.citation}</span><span class="year">${printOnScreen.year}</span></p>`;
-  return  document.getElementById('quote-box').innerHTML=html;
+  return  document.getElementById('quote-box').innerHTML=html; // add the html element to the page.
 }
 
 
@@ -72,5 +72,4 @@ function printQuote() {
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
-
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
