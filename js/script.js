@@ -11,7 +11,7 @@ Project 4 - Random Quote Generator
  * `quotes` array 
 ***/
 //declare an array named quotes
-let quotes = [
+let quotes =[
   {
     quote: 'Many of life’s failures are people who did not realize how close they were to success when they gave up.',
     source: 'Thomas A. Edison',
@@ -35,15 +35,15 @@ let quotes = [
   {
     quote: 'If you do what you’ve always done, you’ll get what you’ve always gotten.',
     source: 'Tony Robbins',
-    citation: 'Forboes',
-    year: 2013
+    // citation: 'Forboes',
+    // year: 2013
 
   },
   {
     quote: 'Be yourself; everyone else is already taken.',
     source: 'Oscar Wilde',
     citation: 'goodreads',
-    year: 2021
+    // year: 2021
 
   }
 ];
@@ -53,7 +53,7 @@ let quotes = [
 ***/
 
 function getRandomQuote() {
-  const randomNum= Math.floor(Math.random() * quotes.length);//genarate a randome number
+  const randomNum = Math.floor(Math.random() * quotes.length);//genarate a randome number
   return quotes[randomNum]; //Return an item of quotes array.
 }
 
@@ -62,9 +62,17 @@ function getRandomQuote() {
 ***/
 function printQuote() {
   const printOnScreen = getRandomQuote();  //declare a variable printOnScreen and assign the returned quote from getRandomQuote function to it.
-  let html = `<p class="quote">${printOnScreen.quote}</p>
-  <p class="source">${printOnScreen.source}<span class="citation">${printOnScreen.citation}</span><span class="year">${printOnScreen.year}</span></p>`;
-  return  document.getElementById('quote-box').innerHTML=html; // add the html element to the page.
+  let html = `<p class="quote">${printOnScreen.quote}</p><p class="source">${printOnScreen.source}`;
+  if (printOnScreen.citation != null) {
+    if (printOnScreen.year != null) {
+      html += `<span class="citation">${printOnScreen.citation}</span><span class="year">${printOnScreen.year}</span></p>`;
+    } else {
+      html += `<span class="citation">${printOnScreen.citation}</span></p>`;
+    }
+  } else {
+    html += `</p>`;
+  }
+  return document.getElementById('quote-box').innerHTML = html; // add the html element to the page.
 }
 
 
